@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muhammad Adhi Prasetyo | Game Developer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--ink:#e8eefb;--mut:#8493b0;--blue:#2a6cff;--bright:#5d93ff;--ln:#10234a;--ln2:#1b3b80;
+--d:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;--b:'Hanken Grotesk',system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--b);min-height:100vh;
+background-image:linear-gradient(var(--ln) 1px,transparent 1px),linear-gradient(90deg,var(--ln) 1px,transparent 1px);background-size:72px 72px;background-position:-1px -1px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--bright);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;border-left:1px solid var(--ln2);border-right:1px solid var(--ln2);background:rgba(0,0,0,.82);min-height:100vh}
+header{display:flex;justify-content:space-between;align-items:stretch;border-bottom:1px solid var(--ln2);position:sticky;top:0;background:#000;z-index:5}
+.brand{font:800 1.5rem/1 var(--d);letter-spacing:.04em;padding:18px 24px;border-right:1px solid var(--ln2);text-decoration:none}
+nav{display:flex;flex-wrap:wrap}
+nav a{padding:18px 22px;text-decoration:none;color:var(--mut);border-left:1px solid var(--ln2);font-weight:500;transition:color .15s,background .15s}
+nav a:hover{color:var(--ink);background:var(--ln)}
+nav a[aria-current=page]{color:#fff;background:var(--blue)}
+.page{display:none}.page.on{display:block}
+footer{border-top:1px solid var(--ln2);padding:18px 24px;color:var(--mut);font-size:.9rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+h1,h2,h3{font-family:var(--d);margin:0;line-height:.92;font-weight:800}
+.tag{color:var(--bright);font-weight:500;font-size:.95rem}
+
+/* HOME */
+#home{position:relative;overflow:hidden}
+#mesh{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero{position:relative;padding:12vh 24px 8vh;pointer-events:none}
+.hero h1{font-size:clamp(4.5rem,17vw,15rem);font-weight:900;letter-spacing:-.01em}
+.hero .o{color:transparent;-webkit-text-stroke:2px var(--blue)}
+.hero p{max-width:34rem;font-size:1.2rem;margin:28px 0 0;color:#c5d2ee}
+.hero .go{pointer-events:auto;display:inline-flex;margin-top:32px;border:1px solid var(--blue);padding:14px 26px;text-decoration:none;font-weight:700;background:#000;transition:background .15s}
+.hero .go:hover{background:var(--blue)}
+.card{position:relative;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ln2);background:#000}
+.card div{padding:22px 24px;border-right:1px solid var(--ln2)}.card div:last-child{border:0}
+.card b{display:block;font:800 2.4rem/1 var(--d);color:var(--bright)}
+.card span{color:var(--mut);font-size:.95rem}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:5fr 7fr}
+.about aside{padding:48px 24px;border-right:1px solid var(--ln2)}
+.about aside>div{position:sticky;top:90px}
+.about h2{font-size:clamp(3rem,7vw,6rem)}
+.about aside p{color:#c5d2ee;margin:22px 0 0}
+.tl{padding:48px 0 48px 56px;margin:0;list-style:none;position:relative}
+.tl::before{content:"";position:absolute;left:24px;top:0;bottom:0;width:1px;background:var(--blue)}
+.tl li{position:relative;padding:0 32px 44px 0}
+.tl li::before{content:"";position:absolute;left:-39px;top:11px;width:15px;height:1px;background:var(--blue)}
+.tl li::after{content:"";position:absolute;left:-42px;top:7px;width:8px;height:8px;border:1px solid var(--bright);background:#000;transform:rotate(45deg)}
+.tl time{color:var(--bright);font-weight:700}
+.tl h3{font-size:2rem;margin:4px 0 8px}
+.tl p{margin:0;color:#b6c4e2}
+
+/* PROJECTS */
+.ph{padding:48px 24px 28px;display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:12px}
+.ph h2{font-size:clamp(3rem,8vw,7rem)}.ph p{margin:0;color:var(--mut);max-width:24rem}
+details{border-top:1px solid var(--ln2)}details:last-of-type{border-bottom:1px solid var(--ln2)}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr 160px 120px 40px;align-items:center;gap:16px;padding:22px 24px;transition:background .15s}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--ln)}
+summary strong{font:800 clamp(1.8rem,4vw,3rem)/1 var(--d)}
+summary span{color:var(--mut)}
+summary i{width:14px;height:14px;position:relative;justify-self:end}
+summary i::before,summary i::after{content:"";position:absolute;background:var(--bright);left:0;top:6px;width:14px;height:2px;transition:transform .2s}
+summary i::after{transform:rotate(90deg)}
+details[open] summary i::after{transform:rotate(0)}
+details[open] summary strong{color:var(--bright)}
+.pd{display:grid;grid-template-columns:1fr 1fr;border-top:1px dashed var(--ln2)}
+.pd>div{padding:26px 24px}.pd>div+div{border-left:1px dashed var(--ln2)}
+.pd p{margin:0 0 12px;color:#c5d2ee}.pd ul{margin:0;padding-left:1.1rem;color:var(--mut)}
+.pd svg{width:100%;height:150px;display:block}
+
+/* SKILLS */
+.sk{display:grid;grid-template-columns:repeat(3,1fr)}
+.sk section{padding:28px 24px 40px;border-right:1px solid var(--ln2)}.sk section:last-child{border:0}
+.sk h3{font-size:2.6rem;margin-bottom:6px}.sk h3+p{color:var(--mut);margin:0 0 26px}
+.sk dl{margin:0}.sk dt{display:flex;justify-content:space-between;margin-top:20px;font-weight:500}
+.sk dt em{font-style:normal;color:var(--mut)}
+.sk dd{margin:8px 0 0;height:1px;background:var(--ln2);position:relative}
+.sk dd::after{content:"";position:absolute;left:0;top:-2px;height:5px;width:var(--w);background:var(--blue);transform-origin:left;animation:fill .8s .1s both cubic-bezier(.2,.7,.2,1)}
+@keyframes fill{from{transform:scaleX(0)}}
+.learn{border-top:1px solid var(--ln2);padding:22px 24px;display:flex;gap:20px;flex-wrap:wrap;align-items:baseline}
+.learn b{font:800 1.6rem var(--d)}.learn span{color:#c5d2ee}
+
+/* CONTACT */
+.ct{display:grid;grid-template-columns:1fr 1fr;min-height:70vh}
+.ct>div{padding:48px 24px}.ct>div:first-child{border-right:1px solid var(--ln2);display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.ct h2{font-size:clamp(3.5rem,9vw,8rem)}
+.ct ul{list-style:none;margin:0;padding:0}.ct li{border-top:1px solid var(--ln2);padding:14px 0;display:flex;justify-content:space-between;gap:12px}
+.ct li a{color:var(--bright)}.ct li span{color:var(--mut)}
+label{display:block;margin-bottom:26px;font-weight:500}
+input,textarea{display:block;width:100%;margin-top:6px;background:transparent;border:0;border-bottom:1px solid var(--ln2);color:var(--ink);font:inherit;padding:10px 0;border-radius:0}
+input:focus,textarea:focus{outline:0;border-bottom-color:var(--bright);box-shadow:0 1px 0 var(--bright)}
+textarea{min-height:130px;resize:vertical}
+button{font:700 1rem var(--b);color:#fff;background:var(--blue);border:0;padding:15px 30px;cursor:pointer}
+button:hover{background:var(--bright)}
+#ok{margin-left:14px;color:var(--mut)}
+
+@media(max-width:860px){
+header{flex-direction:column}.brand{border-right:0;border-bottom:1px solid var(--ln2)}nav a{flex:1;text-align:center;padding:14px 8px;border-top:0}
+.about,.sk,.ct,.pd{grid-template-columns:1fr}
+.about aside{border-right:0;border-bottom:1px solid var(--ln2)}.about aside>div{position:static}
+.sk section{border-right:0;border-bottom:1px solid var(--ln2)}
+.ct>div:first-child{border-right:0;border-bottom:1px solid var(--ln2)}
+.pd>div+div{border-left:0;border-top:1px dashed var(--ln2)}
+summary{grid-template-columns:1fr 32px}summary span{display:none}
+.card{grid-template-columns:1fr}.card div{border-right:0;border-bottom:1px solid var(--ln2)}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="brand" href="#/">MAP</a>
+  <nav aria-label="Main">
+    <a href="#/">Home</a><a href="#/about">About</a><a href="#/projects">Projects</a><a href="#/skills">Skills</a><a href="#/contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="page" id="home">
+  <canvas id="mesh" aria-hidden="true"></canvas>
+  <div class="hero">
+    <h1>Muhammad<br><span class="o">Adhi</span><br>Prasetyo</h1>
+    <p>Student at SMKN 6 Surakarta, building small games and the tools that make them. Move your cursor over the grid. Everything here bends when you push it.</p>
+    <a class="go" href="#/projects">See my games</a>
+  </div>
+  <div class="card">
+    <div><b>4</b><span>games finished or in playable state</span></div>
+    <div><b>2</b><span>game jams entered</span></div>
+    <div><b>Unity + Godot</b><span>engines I work in</span></div>
+  </div>
+</section>
+
+<section class="page" id="about">
+  <div class="about">
+    <aside><div>
+      <h2>Who is behind the code</h2>
+      <p>I'm Adhi, a vocational student in Surakarta. I got into games by modding, then wanted to know how the systems under the mods actually worked. Now I build small, finished games rather than big unfinished ones.</p>
+      <p>I like movement that feels good, tight levels, and menus that never get in the way.</p>
+    </div></aside>
+    <ol class="tl">
+      <li><time>Year 1</time><h3>Started at SMKN 6 Surakarta</h3><p>First programming lessons. Wrote a text adventure in the terminal and a small number guessing game.</p></li>
+      <li><time>Year 2</time><h3>First engine, first jam</h3><p>Picked up Unity and C#. Entered a 48 hour jam and shipped a rough but playable build.</p></li>
+      <li><time>Year 3</time><h3>Wider toolset</h3><p>Added Godot, Blender and pixel art. Started version controlling every project with Git.</p></li>
+      <li><time>Now</time><h3>Looking for an internship</h3><p>Open to a studio internship or a team that needs a gameplay programmer who also understands level design.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="page" id="projects">
+  <div class="ph"><h2>Projects</h2><p>Open a row to see what I made and what I handled. Sample entries, replace them with your own.</p></div>
+  <div id="plist"></div>
+</section>
+
+<section class="page" id="skills">
+  <div class="ph"><h2>Skills</h2><p>Bars show how comfortable I am, not a test score.</p></div>
+  <div class="sk" id="sk"></div>
+  <div class="learn"><b>Learning next</b><span>Shader graph</span><span>Network code basics</span><span>Unreal Engine Blueprints</span></div>
+</section>
+
+<section class="page" id="contact">
+  <div class="ct">
+    <div>
+      <h2>Send me a message</h2>
+      <ul>
+        <li><span>Email</span><a href="mailto:adhi@example.com">adhi@example.com</a></li>
+        <li><span>GitHub</span><a href="#/contact">github.com/your-name</a></li>
+        <li><span>itch.io</span><a href="#/contact">your-name.itch.io</a></li>
+        <li><span>School</span>SMKN 6 Surakarta</li>
+      </ul>
+    </div>
+    <div>
+      <div id="f">
+        <label>Your name<input id="n" autocomplete="name"></label>
+        <label>Your email<input id="e" type="email" autocomplete="email"></label>
+        <label>Message<textarea id="m"></textarea></label>
+        <button id="send" type="button">Open in my email app</button><span id="ok"></span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><span>Muhammad Adhi Prasetyo</span><span>SMKN 6 Surakarta, Central Java</span></footer>
+</div>
+
+<script>
+const P=[
+ {t:"Voidrunner",g:"Top-down shooter",e:"Unity, C#",y:"2025",d:"Twin-stick shooter where every room is a timed wave. I built the movement, enemy spawner and the dash that briefly slows time.",l:["Player controller and dash","Wave spawner with difficulty curve","Screen shake and hit pause"]},
+ {t:"Kopi Dungeon",g:"Pixel roguelike",e:"Godot, GDScript",y:"2025",d:"A roguelike set inside a warung where each run reshuffles the menu items you fight with. All art drawn in Aseprite.",l:["Procedural room generation","Item system with stacking effects","Save and load runs"]},
+ {t:"Lintas Solo",g:"Endless runner",e:"Unity, Blender",y:"2024",d:"A runner through low-poly Solo streets with becak and trains as obstacles. Focus was on readable lanes and fair spacing.",l:["Lane switching and swipe input","Modeled and textured the street kit","Mobile build and performance pass"]},
+ {t:"Signal Drift",g:"Game jam entry",e:"Unity, C#",y:"2024",d:"Made in 48 hours around the theme of broken signals. You steer a drone by tuning noisy radio channels.",l:["Core idea and prototype in day one","Audio mixing tied to the signal","Itch.io page and trailer"]}];
+const S=[
+ {h:"Code",s:"What I write every week",r:[["C#",85],["GDScript",75],["Python",55],["Git",70]]},
+ {h:"Art and audio",s:"Enough to make a prototype look intentional",r:[["Blender",60],["Aseprite",70],["Audacity",50]]},
+ {h:"Design",s:"How a game plays, not only how it runs",r:[["Level layout",75],["Game feel",80],["UI and menus",65]]}];
+const art=i=>`<svg viewBox="0 0 400 150" aria-hidden="true"><g fill="none" stroke="#2a6cff" stroke-width="1">${[...Array(9)].map((_,k)=>`<path d="M0 ${k*19}H400M${k*50} 0V150"/>`).join("")}<path stroke="#5d93ff" stroke-width="2" d="M${20+i*10} 120 L${110+i*8} ${40+i*12} L200 100 L${290-i*6} 30 L380 ${90-i*8}"/><rect x="${186}" y="${86}" width="28" height="28" stroke="#5d93ff"/></g></svg>`;
+document.getElementById("plist").innerHTML=P.map((p,i)=>`<details><summary><strong>${p.t}</strong><span>${p.g}</span><span>${p.y}</span><i></i></summary><div class="pd"><div><p>${p.d}</p><p class="tag">${p.e}</p><ul>${p.l.map(x=>`<li>${x}</li>`).join("")}</ul></div><div>${art(i)}</div></div></details>`).join("");
+document.getElementById("sk").innerHTML=S.map(c=>`<section><h3>${c.h}</h3><p>${c.s}</p><dl>${c.r.map(([n,v])=>`<dt>${n}<em>${v}%</em></dt><dd style="--w:${v}%"></dd>`).join("")}</dl></section>`).join("");
+
+const pages=["home","about","projects","skills","contact"],titles={home:"Home",about:"About",projects:"Projects",skills:"Skills",contact:"Contact"};
+function route(){
+  let k=(location.hash.replace(/^#\/?/,"")||"home");if(!pages.includes(k))k="home";
+  pages.forEach(p=>document.getElementById(p).classList.toggle("on",p===k));
+  document.querySelectorAll("nav a").forEach((a,i)=>i===pages.indexOf(k)?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
+  document.title=titles[k]+" | Muhammad Adhi Prasetyo";window.scrollTo(0,0);
+  k==="home"?start():stop();
+}
+addEventListener("hashchange",route);
+
+/* spring grid on the home page */
+const cv=document.getElementById("mesh"),cx=cv.getContext("2d"),still=matchMedia("(prefers-reduced-motion:reduce)").matches;
+let W,H,pts=[],C,R,mx=-999,my=-999,raf=0,G=56;
+function size(){const r=cv.parentElement.getBoundingClientRect(),d=devicePixelRatio||1;W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);
+  C=Math.ceil(W/G)+1;R=Math.ceil(H/G)+1;pts=[];for(let y=0;y<R;y++)for(let x=0;x<C;x++)pts.push({ox:x*G,oy:y*G,x:x*G,y:y*G});}
+function draw(){
+  cx.clearRect(0,0,W,H);
+  for(const p of pts){const dx=p.ox-mx,dy=p.oy-my,d=Math.hypot(dx,dy),f=d<190?(1-d/190)*34:0;
+    const tx=p.ox-(d?dx/d*f:0),ty=p.oy-(d?dy/d*f:0);p.x+=(tx-p.x)*.15;p.y+=(ty-p.y)*.15;}
+  cx.lineWidth=1;cx.strokeStyle="#2a6cff";cx.globalAlpha=.55;cx.beginPath();
+  for(let y=0;y<R;y++)for(let x=0;x<C;x++){const p=pts[y*C+x];
+    if(x<C-1){const q=pts[y*C+x+1];cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);}
+    if(y<R-1){const q=pts[(y+1)*C+x];cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);}}
+  cx.stroke();cx.globalAlpha=1;
+  raf=still?0:requestAnimationFrame(draw);
+}
+function start(){cancelAnimationFrame(raf);size();draw();}
+function stop(){cancelAnimationFrame(raf);}
+const home=document.getElementById("home");
+home.addEventListener("pointermove",e=>{const r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;if(still)draw();});
+home.addEventListener("pointerleave",()=>{mx=my=-999;});
+addEventListener("resize",()=>{if(home.classList.contains("on"))start();});
+
+/* contact: build an email draft, no server needed */
+document.getElementById("send").onclick=()=>{
+  const n=document.getElementById("n").value.trim(),e=document.getElementById("e").value.trim(),m=document.getElementById("m").value.trim(),ok=document.getElementById("ok");
+  if(!n||!m){ok.textContent="Add your name and a message first.";return;}
+  location.href="mailto:adhi@example.com?subject="+encodeURIComponent("Portfolio message from "+n)+"&body="+encodeURIComponent(m+"\n\n"+n+(e?" ("+e+")":""));
+  ok.textContent="Your email app should open now.";
+};
+route();
+</script>
+</body>
+</html>
